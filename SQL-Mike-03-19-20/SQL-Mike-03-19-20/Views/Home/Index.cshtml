@@ -1,0 +1,27 @@
+﻿@model SQL_Mike_03_19_20.Models.testimonial
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="co-sm-12">
+           
+            @Model
+            
+            <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="author" name="author">
+                </div>
+            
+            <button type="submit"> add user</button>
+            <div class="form-group">
+                <label for="dummy-text">Dummy Text</label>
+                <input type="text" class="form-control" id="dummyText" name="name">
+            </div>
+            <button type="submit"> add user</button>
+        </div>
+
+    </div>
+</div>
