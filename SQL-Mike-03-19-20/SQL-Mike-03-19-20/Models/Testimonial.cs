@@ -12,5 +12,6 @@ namespace SQL_Mike_03_19_20.Models
 		public string Author { get; set; }
 		public string Content { get; set; }
 
+
 	}
 }

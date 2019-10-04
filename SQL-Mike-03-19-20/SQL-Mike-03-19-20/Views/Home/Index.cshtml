@@ -1,4 +1,5 @@
-﻿@model SQL_Mike_03_19_20.Models.testimonial
+﻿@using SQL_Mike_03_19_20.Models
+@model SQL_Mike_03_19_20.Models.testimonial
 
 @{
     ViewBag.Title = "Home Page";
@@ -7,21 +8,33 @@
 <div class="jumbotron">
     <div class="row">
         <div class="co-sm-12">
-           
+
             @Model
-            
-            <div class="form-group">
+            <form method="post" id="myForm">
+                <div class="form-group">
                     <label for="author">Author</label>
-                    <input type="text" class="form-control" id="author" name="author">
+                    <input type="text" class="form-control" id="Author" name="author">
                 </div>
-            
-            <button type="submit"> add user</button>
-            <div class="form-group">
-                <label for="dummy-text">Dummy Text</label>
-                <input type="text" class="form-control" id="dummyText" name="name">
-            </div>
-            <button type="submit"> add user</button>
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="lorumIpsum">Generate Testimonials</label>
+                            <input type="text" class="form-control" id="Author" name="author">
+                        </div>
+                
+                        @(new lorumIpsum().Qoute1)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dummy-text">Dummy Text</label>
+                    <input type="text" class="form-control" id="content" name="content">
+                </div>
+                <button type="submit">Add testimonial</button>
+            </form>
         </div>
+
 
     </div>
 </div>

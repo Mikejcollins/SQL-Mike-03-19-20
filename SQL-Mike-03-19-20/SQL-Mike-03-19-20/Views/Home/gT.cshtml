@@ -1,0 +1,39 @@
+﻿@model SQL_Mike_03_19_20.Models.gtViewModel
+@{
+    ViewBag.Title = "gT";
+}
+
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        <h3>@Model.author</h3>
+        <p>@Model.content</p>
+        <button>Add Testimonial</button>
+        <div id="returnData"></div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("button").click(function() {
+                //alert("check");
+                var author = $("h3").html();
+                var content = $("p").html();
+                $.post("@Url.Action("saveGt")",
+                    {
+                        at: author,
+                        ct: content,
+                    },
+                    function (data, status) {
+                        console.log(status);
+                        console.log(data);
+                        $("#returnData").html(data);
+                    });
+            });
+});
+</script>
+}
