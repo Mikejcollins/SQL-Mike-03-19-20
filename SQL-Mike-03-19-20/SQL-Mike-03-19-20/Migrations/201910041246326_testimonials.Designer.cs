@@ -13,7 +13,7 @@ namespace SQL_Mike_03_19_20.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201910030935122_testimonials"; }
+            get { return "201910041246326_testimonials"; }
         }
         
         string IMigrationMetadata.Source

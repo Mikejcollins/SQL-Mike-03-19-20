@@ -11,11 +11,12 @@ namespace SQL_Mike_03_19_20.Migrations
                 "dbo.testimonials",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         Author = c.String(),
                         Content = c.String(),
+                        Added = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.ID);
             
         }
         

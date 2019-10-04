@@ -30,6 +30,6 @@ namespace SQL_Mike_03_19_20.Models
             return new ApplicationDbContext();
         }
 
-		public DbSet<testimonial> Testimonials { get; set; }
+		public DbSet<testimonial> Testimonials { get; set;}
     }
 }
