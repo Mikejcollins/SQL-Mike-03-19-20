@@ -4,8 +4,10 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
+using SQL_Mike_03_19_20.Migrations;
 using SQL_Mike_03_19_20.Models;
 
 namespace SQL_Mike_03_19_20.Controllers
@@ -53,13 +55,46 @@ namespace SQL_Mike_03_19_20.Controllers
                 db.Testimonials.Add(testimonial);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
 
-            return View(testimonial);
+				
+
+
+			}
+
+            
+
+			
         }
 
-        // GET: testimonials/Edit/5
-        public ActionResult Edit(int? id)
+
+		//trying to work out a way of adding multiple testimonials until the amount added equals the number selected on the view
+
+	    public ActionResult create([Bind(Include = "ID,Author,Content,Added")]testimonial, int a)
+	    {
+
+
+		    int amount = db.Testimonials.Count();
+
+			Console.Write(amount);
+		    if (amount < a)
+		    {
+			    db.Testimonials.Add(testimonial);
+		    }
+
+		    else
+		    {
+			    return View(testimonials);
+		    }
+		    
+
+
+
+	    }
+
+
+
+		// GET: testimonials/Edit/5
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -88,6 +123,8 @@ namespace SQL_Mike_03_19_20.Controllers
             }
             return View(testimonial);
         }
+
+		
 
         // GET: testimonials/Delete/5
         public ActionResult Delete(int? id)
